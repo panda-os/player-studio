@@ -638,11 +638,13 @@ KMCMenu.controller('EditCtrl', ['$scope','$http', '$timeout','PlayerData','Playe
 			$scope.updatePlayerData();
 			$scope.dataChanged = false;
 			window.parent.studioDataChanged = false; // used when navigating away from studio
+/*
 			if ($scope.playerData.config.plugins.playlistAPI && $scope.playerData.config.plugins.playlistAPI.plugin){
 				$scope.playerData.tags = 'html5studio,playlist'; // set playlist tag
 			}else{
 				$scope.playerData.tags = 'html5studio,player'; // set playlist tag
 			}
+*/
 			PlayerService.savePlayer($scope.playerData).then(function(value) {
 					localStorageService.remove('tempPlayerID'); // remove temp player from storage (used for deleting unsaved players)
 					apiService.setCache(false);                 // prevent the list controller from using the cache the next time the list loads
